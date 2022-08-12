@@ -23,7 +23,7 @@ def request_prediction(model_uri, data):
 
 
 def main():
-    APP_URI = 'http://127.0.0.1:8000/predict'
+    APP_URI = 'http://fastapi:8000/predict'
 
     st.title('Prediction des sentiments tweet')
 

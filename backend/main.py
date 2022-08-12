@@ -15,7 +15,7 @@ stopwords = stopwords.words("english")
 from nltk.stem.snowball import EnglishStemmer
 
 import spacy
-import en_core_web_sm
+#import en_core_web_sm
 
 import re
 
