@@ -1,28 +1,35 @@
 version: "3.10"
 
 services:
-  frontend:
-    build: frontend/
-    ports:
-      - 8501:8501
-    networks:
-      - deploy_network
-    depends_on:
-      - backend
-    volumes:
-        - ./frontend:/app
-    container_name: streamlit    
-
   backend:
-    build: backend/
+    platform: linux/amd64  
+    build: ./backend
+    
+   # networks:
+    #  - deploy_network
+    
+    image: essai.azurecr.io/backend
+    container_name: fastapi
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
       - 8000:8000
-    networks:
-      - deploy_network
-    volumes:
-      - ./backend:/app
-    container_name: fastapi
 
-networks:
-  deploy_network:
-    driver: bridge
+  frontend:
+    platform: linux/amd64
+    build: ./frontend
+    image: essai.azurecr.io/frontend 
+    container_name: streamlit
+    #networks:
+     # - deploy_network
+    #depends_on:
+     # - backend
+    environment:
+      BACKEND: backend
+       
+    ports:
+          - 80:80
+  
+#networks:
+ # deploy_network:
+  #  driver: bridge

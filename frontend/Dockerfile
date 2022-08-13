@@ -1,3 +1,4 @@
+#!/bin/bash
 # frontent/Dockerfile
 
 FROM python:3.10
@@ -10,7 +11,7 @@ RUN pip install -r requirements.txt
 
 COPY . /app
 
-EXPOSE 8501
+#EXPOSE 8501
 
-ENTRYPOINT ["streamlit","run"]
-CMD ["app.py"]
+#ENTRYPOINT ["streamlit","run"]
+CMD ["streamlit", "run", "app.py", "--server.port", "80"] 

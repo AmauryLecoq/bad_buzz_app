@@ -52,6 +52,6 @@ def predict_tweet(data: Tweet):
 # sera lancer sur http://127.0.0.1:8000
 
 if __name__ == '__main__':
-    uvicorn.run(app, host ="127.0.0.1", port=8000)
+    uvicorn.run(app, host ="0.0.0.0", port=8000)
 
 # uvicorn <nom du fichier actuel>:app --reload
