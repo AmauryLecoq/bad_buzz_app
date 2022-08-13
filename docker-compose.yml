@@ -3,11 +3,7 @@ version: "3.10"
 services:
   backend:
     platform: linux/amd64  
-    build: ./backend
-    
-   # networks:
-    #  - deploy_network
-    
+    build: backend
     image: essai.azurecr.io/backend
     container_name: fastapi
     environment:
@@ -20,16 +16,7 @@ services:
     build: ./frontend
     image: essai.azurecr.io/frontend 
     container_name: streamlit
-    #networks:
-     # - deploy_network
-    #depends_on:
-     # - backend
     environment:
-      BACKEND: backend
-       
+      BACKEND: backend  
     ports:
           - 80:80
-  
-#networks:
- # deploy_network:
-  #  driver: bridge
